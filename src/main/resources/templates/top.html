@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LGTM</title>
+    <link rel="stylesheet" media="all" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="h1">
+    <div class="text-left" style="margin-left: 80px">
+        <a href="/lgtm">
+            <span style="color: black" class="text-decoration:none">LGTM.in</span>
+        </a>
+    </div>
+</div>
+<div class="h3">
+    <div class="text-right" style="margin-right:80px">
+        <a href="/register">
+            <button class="btn btn-outline-secondary">upload</button>
+        </a>
+    </div>
+</div>
+<div style="float: left; margin: 5px" th:each="image, index:${imageList}">
+    <p><img th:src="${image.imageUrl}" style="object-fit:contain; height:200px; width:200px;background-color:#F5F5F5"></p>
+    <input  th:value="${image.imageLgtmUrl}" />
+    <a th:href="@{/delete(q=${image.id})}">
+        <button class="btn btn-outline-secondary">削除</button></a>
+</div>
+</body>
+</html>
